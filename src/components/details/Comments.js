@@ -1,20 +1,32 @@
 import React from 'react'
 import CommentSummary from './CommentSummary'
+import {motion} from 'framer-motion';
 
+
+const containerVariants ={
+  initial:{
+    opacity:0
+  },
+  animate:{
+    opacity:1,
+    transition:{
+      delay:2.5,
+      duration:1.5
+    }
+  }
+};
 const Comments = ({replies,twiitId}) => {
     return (
-        <div className="row bg-white">
-            <div className="col-lg col-md col-sm">
-                <div className="list-group list-group-flush">
-                    {replies && replies.map(reply=>{
-                        while(reply.twid === twiitId){
-                            return (<CommentSummary reply={reply}  key={reply.id}/>);
-                        }
+        
+            <motion.div className="list-group"  variants={containerVariants} initial="initial" animate="animate">
+                {replies && replies.map(reply=>{
+                    while(reply.twid === twiitId){
+                        return (<CommentSummary reply={reply}  key={reply.id}/>);
+                    }
                         
-                    })}
-                </div>
-            </div>
-        </div>
+                })}
+            </motion.div>
+
     )
 }
 

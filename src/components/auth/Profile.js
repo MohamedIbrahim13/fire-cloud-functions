@@ -1,5 +1,7 @@
 import React from 'react'
 import Batman from '../../images/bat.jpg';
+import Default from '../../images/default.jpg';
+
 // import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -9,11 +11,12 @@ const Profile = (props) => {
     const {auth,profile}=props;
     // if(!auth.uid) return <Redirect to='/pre-home'/>
     return (
-        <div className="container">
-            <div className="row mt-2">
+        <>
+            <div className="row my-2">
                 <div className="col">
                   <div className="card">
                     <img src={Batman} className="card-img-top" style={{height:250}} alt="..."/>
+                    <div className="img-contain"><img className="profile-pic" src={Default} alt="..."/></div>
                     <div className="card-header">
                         <ul className="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                             <li className="nav-item">
@@ -43,7 +46,7 @@ const Profile = (props) => {
                   </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

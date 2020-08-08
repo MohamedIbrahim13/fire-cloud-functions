@@ -11,31 +11,24 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const Details = (props) => {
     const {auth,twiit,replies,twiitId}=props;
-    if(!auth.uid) return <Redirect to='/pre-home' />;
+    if(!auth.uid) return <Redirect to='/log-in' />;
 
     return (
-        <div className="bg-home h-auto">
-            <div className="container">
-                <div className="row py-2">
-                    <div className="col-lg-4 col-md-6 col-sm-12 mb-2">
-                        <TwiitInfoDetail twiit={twiit} twiitId={twiitId}/>
- 
-                        <div className="row">
-                            <div className="col-lg col-md col-sm">
-                                <p className="lead bg-white">Ads...</p>
-                            </div>
-                        </div>
-                        <SideMenu />
+        <>
+          <div className="row g-2">
+                <div className="col-12 col-md-5 d-flex flex-column mb-1 p-2">
+                    <TwiitInfoDetail twiit={twiit} twiitId={twiitId}/>
+                    <div>
+                        <p className="lead bg-white">Ads...</p>
                     </div>
-                    <div className="col-lg-8 col-md-6 col-sm-12">
-                        
-                        <Comments replies={replies} twiitId={twiitId}/>
-                           
-                    </div>
-
+                    <SideMenu />
                 </div>
+                <div className="col-12 col-md-7 p-3">
+                    <Comments replies={replies} twiitId={twiitId}/>  
+                </div>
+
             </div>
-        </div>
+        </>
     )
 }
 

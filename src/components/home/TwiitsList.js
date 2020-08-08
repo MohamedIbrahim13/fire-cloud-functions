@@ -6,17 +6,14 @@ import TwiitSummary from './TwiitSummary';
 const TwiitsList = ({twiits}) => {
 
     return (
-        <div className="col-lg-12 col-md-12 col-sm-12">
-            <ul className="list-unstyled py-2 py-md-2 py-sm-2">
+        
+            <div className="row py-2" data-masonry={{percentPosition: true }}>
                 {twiits && twiits.map(twiit=>{
-                    return (
-    
-                        <TwiitSummary  twiit={twiit}  key ={twiit.id} />
-                    )
+                    return (<TwiitSummary  twiit={twiit}  key ={twiit.id} />)
                   })
                 }
-            </ul>
-        </div>
+            </div>
+        
     )
 }
 

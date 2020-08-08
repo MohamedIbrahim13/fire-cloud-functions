@@ -25,39 +25,43 @@ const JoinForm = (props) => {
     const {auth,authError} = props;
     if(auth.uid) return <Redirect to='/'/>
     return (
-        <div className="mt-5 mt-sm-5 mt-md-5 flex-sm-column flex-md-column flex-column d-flex d-md-flex d-sm-flex align-items-sm-center align-items-md-center align-items-center">
-          <form onSubmit={handleSubmit} className="form-signin" >
-            <div className="container">
-                <div className="form-row mb-1">
-                    <div className="col">
-                        <input type="text" className="form-control" placeholder="Full Name" value={fullName} onChange={(e)=>{setFname(e.target.value)}} required autoFocus/>
-                    </div>
-                    <div className="col">
-                        <input type="text" className="form-control" placeholder="Username" value={username} onChange={(e)=>{setUname(e.target.value)}} required autoFocus/>
-                    </div>
+        <div className="row h-100">
+         <div className="col-md-6 offset-md-3 col-12 justify-content-center align-items-center justify-content-md-center align-md-items-center mt-3 mb-3 mt-md-5 mb-md-3">
+          <form onSubmit={handleSubmit} className="form-signin px-3 py-3 rounded-lg">
+            <div className="text-center mb-2 h3">Join us</div>
+                <div className="mb-2">
+                    <label htmlFor="FullName" className="form-label">Email</label>
+                    <input type="text" className="form-control" id="FullName" placeholder="Full Name" value={fullName} onChange={(e)=>{setFname(e.target.value)}} required autoFocus/>
                 </div>
-                <div className="form-row mb-1">
-                    <div className="col">
-                        <input type="email" className="form-control" placeholder="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}} required autoFocus/>
-                    </div>
-                    <div className="col">
-                        <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required autoFocus/>
-                    </div>
+                <div className="mb-2">
+                    <label htmlFor="UserName" className="form-label">Email</label>
+                    <input type="text" className="form-control" id="UserName" placeholder="Username" value={username} onChange={(e)=>{setUname(e.target.value)}} required autoFocus/>
                 </div>
-                <div className="form-row mb-1">
-                    <div className="col-8">
-                        <input type="text" className="form-control" placeholder="Address" value={address} onChange={(e)=>{setAddress(e.target.value)}} required autoFocus/>
-                    </div>
-                    <div className="col-4">
-                        <input type="text" className="form-control" placeholder="City" value={city} onChange={(e)=>{setCity(e.target.value)}} required autoFocus/>
-                    </div>
+                <div className="mb-2">
+                    <label htmlFor="Mail" className="form-label">Email</label>
+                    <input type="email" className="form-control" id="Mail" placeholder="Email" value={email} onChange={(e)=>{setEmail(e.target.value)}} required autoFocus/>
                 </div>
-                <button type="submit" className="btn btn-prim btn-block mt-2">Submit</button>
+                <div className="mb-2">
+                    <label htmlFor="Pass" className="form-label">Email</label>
+                    <input type="password" className="form-control" id="Pass" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}} required autoFocus/>
+                </div>
+                <div className="mb-2">
+                    <label htmlFor="Address" className="form-label">Email</label>
+                    <input type="text" className="form-control" id="Address" placeholder="Address" value={address} onChange={(e)=>{setAddress(e.target.value)}} required autoFocus/>
+                </div>
+                <div className="mb-2">
+                     <label htmlFor="City" className="form-label">Email</label>
+                    <input type="text" className="form-control" id="City" placeholder="City" value={city} onChange={(e)=>{setCity(e.target.value)}} required autoFocus/>
+                </div>
+                <button type="submit" className="btn btn-primary btn-block mt-0">Submit</button>
                 <div className="text-danger text-center">
                     {authError ? <p className="lead">{authError}</p> : null}
+                </div> 
+                <div className="text-danger text-center mt-3">
+                    Already a user ? <a href="/log-in">Login</a>
                 </div>
-            </div> 
           </form> 
+         </div>
         </div>
     )
 }

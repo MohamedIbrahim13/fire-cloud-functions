@@ -11,27 +11,24 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const Home = (props) => {
     const {twiits,auth}=props;
-    if(!auth.uid) return <Redirect to='/pre-home'/>
+    if(!auth.uid) return <Redirect to='/log-in'/>
     return (
-        <div className="h-auto">
-            <div className="container-lg container-md container-sm">
+
+
                 <div className="row py-2">
-                    <div className="col-lg-3 col-md-3 col-sm-12 mb-2">
+                    <div className="col-12 col-md-3 order-md-1 mb-1 mt-5 mt-md-0">
                         <MiniProfileShow twiits={twiits} auth={auth}/>   
                         <SideMenu />
                     </div>
-                    <div className="col-lg-6 col-md-6 col-sm-12 mb-2">
+                    <div className="col-12 order-first order-md-2 col-md-6 mb-2 d-flex flex-column">
                         <TwiitForm />
-                        <div className="row bg-white">
-                            <TwiitsList twiits={twiits}/>
-                        </div>
+                        <TwiitsList twiits={twiits}/>
                     </div>
-                    <div className="col-lg-3 col-md-3 col-sm-12">
-                        <p className="bg-white">ads.</p>
+                    <div className="col-12 order-last order-md-3 col-md-3 bg-dark bg-gradient rounded-lg">
+                        <p className="lead">ads.</p>
                     </div>
                 </div>
-            </div>
-        </div>
+
     )
 }
 

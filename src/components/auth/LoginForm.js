@@ -19,25 +19,29 @@ const LoginForm = (props) => {
     if(auth.uid) return <Redirect to='/'/>;
 
     return (
-        <div className="mt-5 mt-sm-5 mt-md-5 flex-sm-column flex-md-column flex-column d-flex d-md-flex d-sm-flex align-items-sm-center align-items-md-center align-items-center">
-          <form onSubmit={handleSubmit} className="form-signin">
-                <div className="form-group row mt-1">
-                    <label htmlFor="inputEmail" className="col-sm-2 col-form-label">Email</label>
-                    <div className="col-sm-10">
-                        <input type="email" className="form-control" id="inputEmail" value={email} onChange={(e)=>{setEmail(e.target.value)}} required autoFocus />
-                    </div>
+        <div className="row h-100">
+            
+            <div className="col-md-6 offset-md-3 col-12 justify-content-center align-items-center justify-content-md-center align-md-items-center mt-3 mb-3 mt-md-5 mb-md-3">
+              
+              <form onSubmit={handleSubmit} className="form-signin px-3 py-3 rounded-lg">
+                <div className="text-center mb-3 h3">Login</div>
+                <div className="mb-3">
+                    <label htmlFor="inputEmail" className="form-label">Email</label>
+                    <input type="email" className="form-control" id="inputEmail" value={email} onChange={(e)=>{setEmail(e.target.value)}} required autoFocus />
                 </div>
-                <div class="form-group row mt-1">
-                    <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" className="form-control" id="inputPassword" value={password} onChange={(e)=>{setPassword(e.target.value)}} required autoFocus />
-                    </div>
+                <div className="mb-3">
+                    <label htmlFor="inputPassword" className="form-label">Password</label>
+                    <input type="password" className="form-control" id="inputPassword" value={password} onChange={(e)=>{setPassword(e.target.value)}} required autoFocus />
                 </div>
-                <button type="submit" className="btn btn-prim btn-block mt-2">Submit</button>
+                <button type="submit" className="btn btn-success btn-block mt-1">Submit</button>
                 <div className="text-danger text-center">
                     {authError ? <p className="lead">{authError}</p> : null}
                 </div>
-          </form>  
+                <div className="text-danger text-center mt-3">
+                    New user ? <a href="/join-us">Join us</a>
+                </div>
+              </form> 
+            </div>
         </div>
     )
 }
